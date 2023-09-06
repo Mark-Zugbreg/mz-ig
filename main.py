@@ -1,4 +1,19 @@
-import platform, time, requests, os, wget
+import platform, time, os, wget
+
+try:
+	import wget
+except:
+	os.system("pip install wget")
+try:
+	import requests
+except:
+	os.system("pip install requests")
+try:
+	import Crypto.Random
+except:
+	os.system("pip install pycryptodome")
+
+import requests, wget
 
 session = requests.Session()
 machine = platform.uname().machine
