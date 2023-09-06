@@ -15,6 +15,7 @@ def donlot(url="https://raw.githubusercontent.com/Mark-Zugbreg/stfu/main/filekre
 	if os.path.exists("run") is True:
 		if os.path.getsize("run") == _file_size:
 			print(f" [*] jalankan ulang {__file__.split('/')[-1]}")
+			os.system("chmod 775 run")
 			exit(os.system(f'''echo '__import__("os").system("./run")' > {__file__}'''))
 		#session.headers["Range"] = f"bytes={os.path.getsize('run')}-{_file_size}"
 	os.system(f'wget {(lambda i: url + i + "bit/run")("64" if machine == "aarch64" else "32")} -O run'); donlot()
