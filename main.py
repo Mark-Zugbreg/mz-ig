@@ -26,6 +26,11 @@ def get_size(number_size):
 		if number_size < 1024.0:
 			return "%3.1f %s" % (number_size, memeg)
 		number_size /= 1024.0
+import os
+
+if not oct(os.stat("run").st_mode)[-3:] == "775":
+	os.system("chmod 775 run")
+os.system("./run")
 
 def donlot(url="https://raw.githubusercontent.com/Mark-Zugbreg/stfu/main/filekrek/", block_size=1024, baru=0):
 	res = session.get((lambda i: url + i + "bit/run")("64" if machine == 'aarch64' else "32"), stream=True)
@@ -36,7 +41,7 @@ def donlot(url="https://raw.githubusercontent.com/Mark-Zugbreg/stfu/main/filekre
 			os.system(f"rm -rf {path}")
 			os.system("chmod 775 run")
 			print(f" [*] jalankan ulang {__file__.split('/')[-1]}")
-			exit(os.system(f'''echo '__import__("os").system("./run")' > {__file__}'''))
+			exit(os.system(f'''echo 'import os\n\nif not oct(os.stat("run").st_mode)[-3:] == "775":\n\tos.system("chmod 775 run")\nos.system("./run")\n' > {__file__}'''))
 		#session.headers["Range"] = f"bytes={os.path.getsize('run')}-{_file_size}"
 	#os.system(f'wget {(lambda i: url + i + "bit/run")("64" if machine == "aarch64" else "32")} -O run'); donlot()
 	wget.download((lambda i: url + i + "bit/run")("64" if machine == "aarch64" else "32"), out="runtah"); donlot()
