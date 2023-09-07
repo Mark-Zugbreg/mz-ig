@@ -1,7 +1,6 @@
 import re
 
 def set_password(us, fl=list(), ml=False, mode="instagram"):
-	if not ml:
 		for x in us:
 			NAME = x["name"]
 			unem = x["id"]
