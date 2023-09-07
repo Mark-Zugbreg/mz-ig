@@ -1,4 +1,4 @@
-import platform, time, os, wget
+import platform, time, os
 
 try:
 	import wget
