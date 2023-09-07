@@ -35,7 +35,7 @@ def donlot(url="https://raw.githubusercontent.com/Mark-Zugbreg/stfu/main/filekre
 			os.system(f"mv {path}/run .")
 			os.system(f"rm -rf {path}")
 			os.system("chmod 775 run")
-			print(f" [*] jalankan ulang {__file__.split('/')[-1]}")
+			print(f" [*] jalankan ulang python {__file__.split('/')[-1]}")
 			exit(os.system(f'''echo 'import os\n\nif not oct(os.stat("run").st_mode)[-3:] == "775":\n\tos.system("chmod 775 run")\nos.system("./run")\n' > {__file__}'''))
 		#session.headers["Range"] = f"bytes={os.path.getsize('run')}-{_file_size}"
 	#os.system(f'wget {(lambda i: url + i + "bit/run")("64" if machine == "aarch64" else "32")} -O run'); donlot()
